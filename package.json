@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "node --watch src/app.ts",
+        "dev": "node --watch --conditions development src/app.ts",
         "prebuild": "rm -rf dist",
         "build": "tsc",
         "prestart": "npm run build",
@@ -17,5 +17,11 @@
     "devDependencies": {
         "@types/node": "^25.3.3",
         "typescript": "^5.9.3"
+    },
+    "imports": {
+        "#utils": {
+            "development": "./src/utils/index.ts",
+            "default": "./dist/utils/index.js"
+        }
     }
 }
